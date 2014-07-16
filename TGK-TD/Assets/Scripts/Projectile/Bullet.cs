@@ -50,7 +50,11 @@ public class Bullet : MonoBehaviour {
 		distancePercentage = (totalDistance-currentDistance)/totalDistance;
 	}
 
+<<<<<<< HEAD
+	public virtual void applyBuff(){
+=======
 	private void applyBuff(){
+>>>>>>> 62b5ea3004f9fc53052ba8854540ff0c30e3dd0d
 		Buff b = target.GetComponent<EnemyStats>().checkBuff(buff.name);
 		if(b==null){
 			buff = (Buff)Instantiate(buff);

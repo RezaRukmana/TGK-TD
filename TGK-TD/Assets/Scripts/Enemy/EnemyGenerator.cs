@@ -14,11 +14,21 @@ public class EnemyGenerator : MonoBehaviour {
 
 	public int increaseNumberPerLevel;
 
+<<<<<<< HEAD
+	private GridManager gm;
+	private PlayerStats ps;
+
+	// Use this for initialization
+	void Start () {
+		gm = GameObject.FindGameObjectWithTag("Map").GetComponent<GridManager>();
+		ps = Camera.main.GetComponent<PlayerStats>();
+=======
 	public GridManager gm;
 	public PlayerStats ps;
 
 	// Use this for initialization
 	void Start () {
+>>>>>>> 62b5ea3004f9fc53052ba8854540ff0c30e3dd0d
 		unitGenerateTime = 0;
 		numberGenerated = 0;
 	}
@@ -28,6 +38,9 @@ public class EnemyGenerator : MonoBehaviour {
 		if(!GameState.onPause&&!GameState.onGameOver){
 			waveGenerateTime -= Time.deltaTime;
 			if(waveGenerateTime<=0){
+<<<<<<< HEAD
+				generateBehaviour();
+=======
 				if(numberGenerated<numberInWave){
 					unitGenerateTime -= Time.deltaTime;
 					if(unitGenerateTime<=0){
@@ -40,11 +53,31 @@ public class EnemyGenerator : MonoBehaviour {
 					numberGenerated = 0;
 					waveGenerateTime = waveGenerateCooldown;
 				}
+>>>>>>> 62b5ea3004f9fc53052ba8854540ff0c30e3dd0d
 			}
 		}
 	}
 
+<<<<<<< HEAD
+	public virtual void generateBehaviour(){
+		if(numberGenerated<numberInWave){
+			unitGenerateTime -= Time.deltaTime;
+			if(unitGenerateTime<=0){
+				generateEnemy();
+				unitGenerateTime = unitGenerateCooldown;
+			}
+		}
+		else{
+			numberInWave += increaseNumberPerLevel;
+			numberGenerated = 0;
+			waveGenerateTime = waveGenerateCooldown;
+		}
+	}
+
+	public virtual void generateEnemy(){
+=======
 	void generateEnemy(){
+>>>>>>> 62b5ea3004f9fc53052ba8854540ff0c30e3dd0d
 		Follow enemyGenerated = (Follow)Instantiate(enemy);
 		enemyGenerated.GetComponent<EnemyStats>().ps = ps;
 		int pathNumber = Random.Range(0,gm.startNodes.Length);

@@ -22,8 +22,13 @@ public class Tower : MonoBehaviour {
 			coolDownCount += Time.deltaTime;
 			if(coolDownCount > coolDownTime)
 				coolDownCount = coolDownTime;
+<<<<<<< HEAD
+			if(coolDownCount == coolDownTime) {
+				towerBehaviour();
+=======
 			if(enemyDetected.Count > 0 && coolDownCount == coolDownTime) {
 				shotBullet(enemyDetected[0] as GameObject);
+>>>>>>> 62b5ea3004f9fc53052ba8854540ff0c30e3dd0d
 			}
 		}
 	}
@@ -33,7 +38,16 @@ public class Tower : MonoBehaviour {
 			enemyDetected.Remove(enemyDetected[0]);
 	}
 
+<<<<<<< HEAD
+	public virtual void towerBehaviour(){
+		if(enemyDetected.Count > 0)
+			shotBullet(enemyDetected[0] as GameObject);
+	}
+
+	public virtual void shotBullet(GameObject target){
+=======
 	public void shotBullet(GameObject target){
+>>>>>>> 62b5ea3004f9fc53052ba8854540ff0c30e3dd0d
 		GameObject bullet = (GameObject)Instantiate(projectile);
 		bullet.transform.position = transform.position;
 		bullet.GetComponent<Bullet>().target = target;

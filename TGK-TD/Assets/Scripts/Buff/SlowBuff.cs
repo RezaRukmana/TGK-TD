@@ -14,10 +14,19 @@ public class SlowBuff : Buff{
 	}
 	
 	public override void applyBuff(){
+<<<<<<< HEAD
+		if(!GameState.onPause){
+			buffEffect();
+			time -= Time.deltaTime;
+			if(time<=0)
+				endBuff();
+		}
+=======
 		buffEffect();
 		time -= Time.deltaTime;
 		if(time<=0)
 			endBuff();
+>>>>>>> 62b5ea3004f9fc53052ba8854540ff0c30e3dd0d
 	}
 	
 	public void buffEffect(){
@@ -31,5 +40,9 @@ public class SlowBuff : Buff{
 	public void endBuff(){
 		enemy.GetComponent<Follow>().speed = initialSpeed;
 		enemy.removeBuff(name);
+<<<<<<< HEAD
+		Destroy(gameObject);
+=======
+>>>>>>> 62b5ea3004f9fc53052ba8854540ff0c30e3dd0d
 	}
 }

@@ -29,8 +29,12 @@ public List<Buff> appliedBuffs = new List<Buff>();
 				appliedBuffs[i].applyBuff();
 			}
 			if(HP<0){
+<<<<<<< HEAD
+				onDeath();
+=======
 				ps.incGold(goldLoot);
 				Destroy(gameObject);
+>>>>>>> 62b5ea3004f9fc53052ba8854540ff0c30e3dd0d
 			}
 		}
 	}
@@ -38,11 +42,25 @@ public List<Buff> appliedBuffs = new List<Buff>();
 	public void addBuff(Buff b){
 		appliedBuffs.Add(b);
 	}
+<<<<<<< HEAD
+
+	public virtual void onDeath(){
+		ps.incGold(goldLoot);
+		for(int i=0;i<appliedBuffs.Count;i++){
+			Destroy(appliedBuffs[i].gameObject);
+		}
+		Destroy(gameObject);
+	}
+=======
+>>>>>>> 62b5ea3004f9fc53052ba8854540ff0c30e3dd0d
 	
 	public void removeBuff(string s){
 		for(int i=0;i<appliedBuffs.Count;i++){
 			if(appliedBuffs[i].name.Equals(s)){
+<<<<<<< HEAD
+=======
 				appliedBuffs[i].destroyThis();
+>>>>>>> 62b5ea3004f9fc53052ba8854540ff0c30e3dd0d
 				appliedBuffs.RemoveAt(i);
 				return;
 			}
